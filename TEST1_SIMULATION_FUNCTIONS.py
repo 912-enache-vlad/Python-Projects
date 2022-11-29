@@ -21,14 +21,17 @@ def generate_four_digit_random():
     return n
 
 def valid_guess(n:int):
+    #
     used = [False] * 10
-    while(n > 0):
+    while(n > 10):
         last = int(n % 10)
         if used[last] == True:
             return False
         else:
             used[last] = True
             n //= 10
+    if n == 0 or used[n] == True:
+        return False
     return True
 
 def number_of_codes_and_runners(guess:int, secret_number:int):
@@ -60,3 +63,5 @@ def number_of_codes_and_runners(guess:int, secret_number:int):
             runners += 1
 
     return codes, runners
+
+
