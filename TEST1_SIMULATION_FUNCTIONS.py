@@ -8,20 +8,19 @@ def generate_four_digit_random():
     The function generate a four different digits number
     @return: the number generated
     '''
-    used = [False]*10
+    used = [False] * 10
     n = randint(1, 9)
     used[n] = True
 
     for i in range(3):
         d = randint(0, 9)
         while(used[d] == True):
-            d = randint(1, 9)
+            d = randint(0, 9)
         used[d] = True
         n = n * 10 + d
     return n
 
 def valid_guess(n:int):
-    #
     used = [False] * 10
     while(n > 10):
         last = int(n % 10)
